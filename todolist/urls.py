@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from todolist_app import views as todo_views
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,6 @@ urlpatterns = [
     path('<pk>/update-user/', todo_views.UpdateAssignedUser.as_view(), name='update_user'),
     path('<pk>/delete/', todo_views.DeleteTodoView.as_view(), name='delete_todo'),
     path('', todo_views.ListTodoView.as_view(), name='list_todo'),
+    path('login/', auth_views.LoginView.as_view(template_name='todolist_app/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='todolist_app/logout.html'), name='logout'),
 ]

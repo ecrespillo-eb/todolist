@@ -1,4 +1,6 @@
 <h1>Todo List</h1>
+<a href="{% url 'create_todo' %}">Create new task</a>
+<a href="{% url 'create_priority' %}">Create new priority</a>
 <ul>
 {% for object in object_list %}
     Description: {{ object.description }}<br/>
@@ -13,4 +15,3 @@
     <li>No articles yet.</li>
 {% endfor %}
 </ul>
-    
