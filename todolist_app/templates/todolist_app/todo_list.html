@@ -1,0 +1,13 @@
+<h1>Todo List</h1>
+<ul>
+{% for object in object_list %}
+    Description: {{ object.description }}<br/>
+    Done: {{ object.done }}<br/>
+    Priority: {{ object.priority }}<br/>
+    Assigned User: {{ object.assigned_user }}<br/>
+    <hr/>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>
+    
