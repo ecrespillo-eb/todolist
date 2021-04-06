@@ -4,7 +4,10 @@
     Description: {{ object.description }}<br/>
     Done: {{ object.done }}<br/>
     Priority: {{ object.priority }}<br/>
-    Assigned User: {{ object.assigned_user }}<br/>
+    Assigned User: {{ object.assigned_user }}<br/><br/>
+    <a href="{% url 'update_todo' object.id %}">Update data</a>
+    <a href="{% url 'update_user' object.id %}">Change assigned user</a>
+    <a href="{% url 'delete_todo' object.id %}">Delete</a>
     <hr/>
 {% empty %}
     <li>No articles yet.</li>
