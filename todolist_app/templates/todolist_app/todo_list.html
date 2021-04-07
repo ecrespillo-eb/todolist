@@ -1,13 +1,15 @@
 {% extends "todolist_app/base.html" %}
 {% block content %}
     {% for object in object_list %}
-        <article class="media content-section">
-          <div class="media-body">
-            <h2><a class="article-title" href="#">{{ object.description }}</a></h2>
-            <p class="article-content"> Done: {{ object.done }}</p>
-            <p class="article-content"> Priority: {{ object.priority }}</p>
-            <p class="article-content"> Assigned User: {{ object.assigned_user }}</p>
-          </div>
-        </article>
+      <article class="media content-section">
+        <div class="media-body">
+          <h2><a class="article-title" href="{% url 'update_todo' object.id %}">{{ object.description }}</a></h2>
+          <p class="article-content"> Done: {{ object.done }}</p>
+          <p class="article-content"> Priority: {{ object.priority }}</p>
+          <p class="article-content"> Assigned User: {{ object.assigned_user }}</p>
+          <p class="article-content"> <a href="{% url 'update_user' object.id %}">User</a>: {{ object.assigned_user }}</p>
+          <a href="{% url 'delete_todo' object.id %}">Delete</a>
+        </div>
+      </article>
     {% endfor %}
 {% endblock content %}
