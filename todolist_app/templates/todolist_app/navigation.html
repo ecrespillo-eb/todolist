@@ -16,6 +16,7 @@
             <a class="nav-item nav-link" href="#">{{ user.username }}</a>
             <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
           {% else%}
+            <a class="nav-item nav-link" href="#">AnonymousUser</a>
             <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
           {% endif %}
         </div>
