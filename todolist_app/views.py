@@ -1,10 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from .models import Todo, Priority
 from django.urls import reverse_lazy
 
 
-class CreateTodoView(CreateView):
+class CreateTodoView(LoginRequiredMixin, CreateView):
     model = Todo
     fields = ['description', 'done', 'priority']
     success_url = reverse_lazy('list_todo')
@@ -14,7 +15,7 @@ class CreateTodoView(CreateView):
         return super().form_valid(form)
 
 
-class CreatePriorityView(CreateView):
+class CreatePriorityView(LoginRequiredMixin, CreateView):
     model = Priority
     fields = '__all__'
     success_url = reverse_lazy('list_todo')
