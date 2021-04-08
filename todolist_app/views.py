@@ -43,3 +43,4 @@ class ListTodoView(ListView):
     paginate_by = 100
     fields = '__all__'
     success_url = reverse_lazy('list_todo')
+    ordering = ['-date_posted']

@@ -5,6 +5,7 @@
         <div class="media-body">
           <h2><a class="article-title" href="{% url 'update_todo' object.id %}">{{ object.description }}</a></h2>
           <p class="article-content"> Done: {{ object.done }}</p>
+          <p class="article-content"> Date: {{ object.date_posted }}</p>
           <p class="article-content"> Priority: {{ object.priority }}</p>
           <p class="article-content"> <a href="{% url 'update_user' object.id %}">Assigned User</a>: {{ object.assigned_user }}</p>
           <a href="{% url 'delete_todo' object.id %}">Delete</a>
